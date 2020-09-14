@@ -1,10 +1,17 @@
-def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+from typing import List
 
-    return result
+
+def intersection(arrays: List[List[int]]) -> List[int]:
+    counts = {}
+
+    for array in arrays:
+        for num in array:
+            if num not in counts:
+                counts[num] = 1
+            else:
+                counts[num] += 1
+
+    return list({key for (key, value) in counts.items() if value == len(arrays)})
 
 
 if __name__ == "__main__":
